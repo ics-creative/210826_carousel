@@ -1,4 +1,7 @@
 /* common */
+body {
+  padding-bottom: 400px;
+}
 * {
   box-sizing: border-box;
 }
