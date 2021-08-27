@@ -7,9 +7,8 @@ body {
 }
 .wrapper {
   width: 100%;
-  max-width: 1000px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 0 50px;
   overflow-x: hidden;
 }
 @media (max-width: 768px) {
@@ -23,23 +22,25 @@ h1 {
 }
 h2 {
   text-align: center;
+  font-weight: normal;
 }
 
 .carousel-wrapper {
   position: relative;
 }
 .carousel {
-  height: 400px;
+  height: 540px;
   margin-bottom: 3em;
 }
 .item {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 540px;
   text-align: center;
   color: #fff;
   font-size: 32px;
+  font-weight: bold;
 }
 .item__blue {
   background: rgb(0,28,201);
@@ -52,5 +53,5 @@ h2 {
 .item__yellow {
   background: rgb(241,198,0);
   background: linear-gradient(135deg, rgba(241,198,0,1) 0%, rgba(224,255,0,1) 100%);
-  color: #222;
+  color: #424242;
 }
