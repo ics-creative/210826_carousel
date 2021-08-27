@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Swiper.jsのサンプル</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize-css@2.3.1/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/common.css">
+  <style>
+    .swiper-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .swiper-container.visible {
+      overflow: visible;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Swiper.jsのサンプル</h1>
+    <div class="sample-swiper carousel">
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="item item__blue">1</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item item__yellow">2</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item item__red">3</div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      <!-- Slider main container -->
+    </div>
+
+    <h2>effect: "fade"</h2>
+    <div class="sample-swiper-fade carousel">
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="item item__yellow">1</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item item__red">2</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item item__blue">3</div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <h2>effect: "coverflow"</h2>
+    <div class="sample-swiper-coverflow carousel">
+        <!-- Slider main container -->
+        <div class="swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="item item__red">1</div>
+            </div>
+            <div class="swiper-slide">
+              <div class="item item__blue">2</div>
+            </div>
+            <div class="swiper-slide">
+              <div class="item item__yellow">3</div>
+            </div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    <h2>effect: "cards"</h2>
+    <div class="sample-swiper-cards carousel">
+      <!-- Slider main container -->
+      <div class="swiper-container visible">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="item item__red">1</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item item__blue">2</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item item__yellow">3</div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <h2>effect: "creative"</h2>
+    <div class="sample-swiper-creative carousel">
+      <!-- Slider main container -->
+      <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="item item__red">1</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item item__blue">2</div>
+          </div>
+          <div class="swiper-slide">
+            <div class="item item__yellow">3</div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script type="text/javascript">
+    const defaultOptions = {
+      // ドットインジケーターの表示
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      // 前後スライドボタンを表示
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      loop: true, // ループの有効化
+    }
+
+    // デフォルトの表示
+    const swiper = new Swiper(".sample-swiper .swiper-container", {
+      ...defaultOptions,
+    });
+
+    // フェードイン/アウトのアニメーション
+    const swiperFade = new Swiper(".sample-swiper-fade .swiper-container", {
+      ...defaultOptions,
+
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+    });
+
+    // カバーフローのアニメーション
+    const swiperCoverflow = new Swiper(".sample-swiper-coverflow .swiper-container", {
+      ...defaultOptions,
+
+      loop: true, // ループの有効化
+      slidesPerView: 1.6, // 表示するスライドの枚数
+      centeredSlides : true, // スライドを中央揃えを有効化
+      effect: "coverflow",
+      coverflowEffect: {
+        rotate: 0, // スライドの回転角度
+        stretch: 50, // スライドの間隔（px単位）
+        depth: 200, // 奥行きの設定（translateをZ方向にpx単位で移動）
+        slideShadows : true, // 先頭スライドの影を有効化
+      },
+    });
+
+    // カードのアニメーション
+    const swiperCards = new Swiper(".sample-swiper-cards .swiper-container", {
+      ...defaultOptions,
+
+      grabCursor: true,
+      effect: "cards",
+    });
+
+    // クリエイティブモードのアニメーション
+    const swiperCreative = new Swiper(".sample-swiper-creative .swiper-container", {
+      ...defaultOptions,
+
+      grabCursor: true,
+      effect: "creative",
+      creativeEffect: {
+        prev: { // 現在のスライドが移動された時のアニメーション設定
+          shadow: true, // 影の有効化
+          translate: [0, 0, -400], // translateをX,Y,Zで指定
+        },
+        next: { // スライドが移動された時、次に表示されるスライドのアニメーション設定
+          translate: ["100%", 0, 0], //
+        },
+      },
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>keen-slider.jsのサンプル</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize-css@2.3.1/normalize.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@5.5.1/keen-slider.css">
+  <link rel="stylesheet" href="./assets/common.css">
+  <style>
+    .dots {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      padding: 10px 0;
+      justify-content: center;
+    }
+    .dot {
+      border: none;
+      width: 10px;
+      height: 10px;
+      background: #c5c5c5;
+      border-radius: 50%;
+      margin: 0 5px;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .dot:focus {
+      outline: none;
+    }
+    .dot--active {
+      background: #000;
+    }
+    .arrow {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      fill: #fff;
+      cursor: pointer;
+    }
+    .arrow--left {
+      left: 5px;
+    }
+    .arrow--right {
+      left: auto;
+      right: 5px;
+    }
+    .arrow--disabled {
+      fill: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>keen-slider.jsのサンプル</h1>
+    <div class="carousel-wrapper">
+      <div class="keen-slider carousel">
+        <div class="keen-slider__slide">
+          <div class="item item__blue">1</div>
+        </div>
+        <div class="keen-slider__slide">
+          <div class="item item__yellow">2</div>
+        </div>
+        <div class="keen-slider__slide">
+          <div class="item item__red">3</div>
+        </div>
+      </div>
+
+      <div id="arrow-left" class="arrow arrow--left">
+        <img src="./assets/arrow-left.svg" alt="">
+      </div>
+      <div id="arrow-right" class="arrow arrow--right">
+        <img src="./assets/arrow-right.svg" alt="">
+      </div>
+
+      <div id="dots" class="dots"></div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/keen-slider@5.5.1/keen-slider.min.js"></script>
+  <script type="text/javascript">
+    const keenSlider = new KeenSlider(".keen-slider", {
+      loop: true,
+      created: (instance) => { // 初めて初期化された後に実行
+        // 左の矢印ボタンをクリックしたら1つ前のスライドに移動
+        document
+          .getElementById("arrow-left")
+          .addEventListener("click", function () {
+            instance.prev();
+          });
+
+        // 右の矢印ボタンをクリックしたら1つ先のスライドに移動
+        document
+          .getElementById("arrow-right")
+          .addEventListener("click", function () {
+            instance.next();
+          });
+
+        // ドットインジケーターを生成する親要素を取得
+        const dots_wrapper = document.getElementById("dots");
+
+        // スライドと同じ数のドットインジケーターを生成
+        const slides = document.querySelectorAll(".keen-slider__slide");
+        slides.forEach((t, idx) => {
+          const dot = document.createElement("button");
+          dot.classList.add("dot");
+          dots_wrapper.appendChild(dot);
+
+          // ドットインジケーターをクリックしたら同じ列番号のスライドへ移動
+          dot.addEventListener("click", () => {
+            instance.moveToSlide(idx);
+          });
+        });
+
+        // CSSクラスの更新
+        updateClasses(instance);
+      },
+      slideChanged: (instance) => { // 現在表示されているスライドが変更された時に実行
+        // CSSクラスの更新
+        updateClasses(instance);
+      },
+    })
+
+    /**
+     * 各要素のCSSクラスを更新
+     * @param instance
+     */
+    function updateClasses(instance) {
+      // 現在表示しているスライドの列番号を取得
+      const slide = instance.details().relativeSlide;
+
+      // 前後にスライドする矢印ボタンの状態を更新
+      const arrowLeft = document.getElementById("arrow-left");
+      const arrowRight = document.getElementById("arrow-right");
+      slide === 0 // 最初のスライドの場合
+        ? arrowLeft.classList.add("arrow--disabled")
+        : arrowLeft.classList.remove("arrow--disabled");
+      slide === instance.details().size - 1 // 最後のスライドの場合
+        ? arrowRight.classList.add("arrow--disabled")
+        : arrowRight.classList.remove("arrow--disabled");
+
+      // 生成されたドットインジケーターの要素を取得して、
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach(function (dot, idx) {
+        idx === slide
+          ? dot.classList.add("dot--active")
+          : dot.classList.remove("dot--active");
+      })
+    }
+  </script>
+</body>
+</html>
