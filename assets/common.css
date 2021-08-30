@@ -43,15 +43,12 @@ h2 {
   font-weight: bold;
 }
 .item__blue {
-  background: rgb(0,28,201);
-  background: linear-gradient(135deg, rgba(0,28,201,1) 0%, rgba(0,224,255,1) 100%);
+  background: rgb(68 174 255);
 }
 .item__red {
-  background: rgb(241,0,0);
-  background: linear-gradient(135deg, rgba(241,0,0,1) 0%, rgba(255,166,0,1) 100%);
+  background: rgb(248 82 1);
 }
 .item__yellow {
-  background: rgb(241,198,0);
-  background: linear-gradient(135deg, rgba(241,198,0,1) 0%, rgba(224,255,0,1) 100%);
-  color: #424242;
+  background: rgb(255 213 27);
+  color: #585858;
 }
