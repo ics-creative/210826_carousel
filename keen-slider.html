@@ -114,7 +114,7 @@
           dot.classList.add("dot");
           dots_wrapper.appendChild(dot);
 
-          // ドットインジケーターをクリックしたら同じ列番号のスライドへ移動
+          // ドットインジケーターをクリックしたら同じインデックスのスライドへ移動
           dot.addEventListener("click", () => {
             instance.moveToSlide(idx);
           });
@@ -147,7 +147,7 @@
         ? arrowRight.classList.add("arrow--disabled")
         : arrowRight.classList.remove("arrow--disabled");
 
-      // 生成されたドットインジケーターの要素を取得して、
+      // 生成されたドットインジケーターの要素を取得し状態を更新
       const dots = document.querySelectorAll(".dot");
       dots.forEach(function (dot, idx) {
         idx === slide
