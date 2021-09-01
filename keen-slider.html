@@ -93,14 +93,14 @@
         // 左の矢印ボタンをクリックしたら1つ前のスライドに移動
         document
           .getElementById("arrow-left")
-          .addEventListener("click", function () {
+          .addEventListener("click", () => {
             instance.prev();
           });
 
         // 右の矢印ボタンをクリックしたら1つ先のスライドに移動
         document
           .getElementById("arrow-right")
-          .addEventListener("click", function () {
+          .addEventListener("click", () => {
             instance.next();
           });
 
@@ -149,7 +149,7 @@
 
       // 生成されたドットインジケーターの要素を取得し状態を更新
       const dots = document.querySelectorAll(".dot");
-      dots.forEach(function (dot, idx) {
+      dots.forEach((dot, idx) => {
         idx === slide
           ? dot.classList.add("dot--active")
           : dot.classList.remove("dot--active");
