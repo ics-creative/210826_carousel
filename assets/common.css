@@ -25,6 +25,12 @@ h2 {
   font-weight: normal;
 }
 
+button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
 .carousel-wrapper {
   position: relative;
 }
