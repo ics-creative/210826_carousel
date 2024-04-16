@@ -11,7 +11,7 @@ body {
   margin: 0 auto;
   overflow-x: hidden;
 }
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .wrapper {
     padding: 0 20px;
   }
@@ -23,6 +23,12 @@ h1 {
 h2 {
   text-align: center;
   font-weight: normal;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
 }
 
 .carousel-wrapper {
@@ -51,4 +57,7 @@ h2 {
 .item__yellow {
   background: rgb(255 213 27);
   color: #585858;
+}
+.item__purple {
+  background: rgb(227, 72, 255);
 }

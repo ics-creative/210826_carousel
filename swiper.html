@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Swiper.jsのサンプル</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize-css@2.3.1/normalize.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./assets/common.css">
   <style>
     .swiper-container {
@@ -44,8 +43,8 @@
         <div class="swiper-pagination"></div>
 
         <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <button type="button" class="swiper-button-prev"></button>
+        <button type="button" class="swiper-button-next"></button>
       </div>
       <!-- Slider main container -->
     </div>
@@ -71,8 +70,8 @@
         <div class="swiper-pagination"></div>
 
         <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <button type="button" class="swiper-button-prev"></button>
+        <button type="button" class="swiper-button-next"></button>
       </div>
     </div>
 
@@ -92,13 +91,16 @@
             <div class="swiper-slide">
               <div class="item item__yellow">3</div>
             </div>
+            <div class="swiper-slide">
+              <div class="item item__purple">4</div>
+            </div>
           </div>
           <!-- If we need pagination -->
           <div class="swiper-pagination"></div>
 
           <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          <button type="button" class="swiper-button-prev"></button>
+          <button type="button" class="swiper-button-next"></button>
         </div>
     </div>
 
@@ -123,8 +125,8 @@
         <div class="swiper-pagination"></div>
 
         <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <button type="button" class="swiper-button-prev"></button>
+        <button type="button" class="swiper-button-next"></button>
       </div>
     </div>
 
@@ -149,13 +151,13 @@
         <div class="swiper-pagination"></div>
 
         <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <button type="button" class="swiper-button-prev"></button>
+        <button type="button" class="swiper-button-next"></button>
       </div>
     </div>
   </div>
 
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/swiper@11.1.1/swiper-bundle.min.js"></script>
   <script type="text/javascript">
     const defaultOptions = {
       // ドットインジケーターの表示
@@ -190,7 +192,6 @@
     const swiperCoverflow = new Swiper(".sample-swiper-coverflow .swiper-container", {
       ...defaultOptions,
 
-      loop: true, // ループの有効化
       slidesPerView: 1.6, // 表示するスライドの枚数
       centeredSlides : true, // スライドを中央揃えを有効化
       effect: "coverflow",
